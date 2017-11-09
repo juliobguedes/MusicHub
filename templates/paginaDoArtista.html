@@ -1,0 +1,27 @@
+<div>
+
+    <div class="perfil jumbotron">
+        <p>{{artista.nome}}</p>
+        <img ng-src="{{artista.imagem}}" class="fotoArtista"/>
+        <div ng-if="artista.ehFavorito">
+            <button class="btn">
+                <span class="glyphicon glyphicon-star">Artista Favorito</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="albunsEMusicas">
+
+        <div>
+            <img src="" class="fotoAlbum"/>
+            <p>{{album.nome}}</p>
+
+        </div>
+
+
+
+    </div>
+
+
+
+</div>

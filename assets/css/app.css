@@ -1,0 +1,109 @@
+@font-face {
+    font-family: 'Gunny';
+    src: url('../fonts/Gunny.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Humanst';
+    src: url('../fonts/Humanst.ttf') format('truetype');
+}
+
+body {
+    font-family: Humanst;
+}
+
+.jumbotron {
+    width: 400px;
+    float: left;
+
+    border-radius: 9px;
+
+    margin-top: 50px;
+    margin-left: 90px;
+
+}
+
+.artForm {
+    width: 300px;
+    margin-left: 50px;
+}
+
+input {
+    margin-top: 3px;
+}
+
+.buttons {
+    width: 300px;
+    margin-top: 10px;
+    margin-left: 50px;
+}
+
+.header {
+    height: 70px;
+    width: 100% !important;
+    background-color: #3fa9f5;
+    border-bottom: 1px #000000 solid;
+}
+
+.resize {
+    width: 130px !important;
+    height: 65px !important;
+    margin-bottom: 2px;
+    padding-top: 15px;
+    float: left;
+}
+
+.displayArtistas {
+    float: left;
+
+    width: 600px;
+    text-align: center !important;
+
+    margin-top: 50px;
+    margin-left: 90px;
+
+}
+
+table {
+    border-radius: 9px;
+}
+
+th, td {
+    text-align: center;
+}
+
+.alert {
+    width: 300px;
+    margin-top: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+p {
+    font-family: Humanst;
+    text-align: center;
+}
+
+.musicasForm {
+    width: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.form-control {
+    margin-bottom: 5px;
+}
+
+a.link {
+    text-decoration:none;
+    color:black;
+}
+
+.fotoArtista {
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
