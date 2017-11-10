@@ -12,12 +12,9 @@
 
     <div class="albunsEMusicas">
 
-        <div>
-            <img src="" class="fotoAlbum"/>
-            <p>{{album.nome}}</p>
-
+        <div ng-repeat="album in artistas.albuns">
+        <p><a>{{album.nome}}</a></p>
         </div>
-
 
 
     </div>
