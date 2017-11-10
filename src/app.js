@@ -15,14 +15,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl:"templates/paginaDoArtista.html",
         controller:"paginaDoArtistaController",
         resolve: {
-            artista: function($stateParams, MusicHub) {
-                return MusicHub.getArtista($stateParams.nome)
+            artista: function($stateParams, musicHub) {
+                return musicHub.getArtista($stateParams.nome)
             }
         }
-    }).state("paginaDoAlbum", {
-        url:"/artista/:nome/album/:nomeAlbum",
-        templateUrl:"templates/paginaDoAlbum.html",
-        controller:"paginaDoAlbum"
     });
 
 });

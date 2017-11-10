@@ -10,15 +10,25 @@
         </div>
     </div>
 
-    <div class="albunsEMusicas">
+    <div class="albumTable">
 
-        <div ng-repeat="album in artistas.albuns">
-        <p><a>{{album.nome}}</a></p>
-        </div>
+        <p class="albunsHead">Albuns</p>
+        <table class="table table-striped">
+            <tr ng-repeat="musica in artista.albuns">
+                <td>{{musica.nome}}<td>
+            </tr>
+        </table>
+    </div>
+
+    <div class="musicTable">
+
+        <table>
+            <tr>
+                <th>{{"Musicas do album: " + album.nome}}</th>
+            </tr>
+        </table>
 
 
     </div>
-
-
 
 </div>

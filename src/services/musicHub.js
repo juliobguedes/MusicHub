@@ -1,7 +1,32 @@
 app.service("musicHub", function() {
-    this.artistas = [];
-
-    this.artistaSelecionado = undefined;
+    this.artistas = [
+        {nome:"Taylor Swift",
+        imagem:"https://www.tribunaonline.com.br/wp-content/uploads/2016/05/taylor-swift.png",
+        albuns:[{
+            nome:"Reputation",
+            musicas:[{
+                titulo:"…Ready For It?",
+                duracao:"3:01",
+                ano:2017
+            }, {
+                titulo:"End Game (feat. Ed Sheeran and Future)",
+                duracao:"3:01",
+                ano:2017
+            }]
+        },{
+            nome:"1989",
+            musicas:[{
+                titulo:"Style",
+                duracao:"3:10",
+                ano:2014
+            }, {
+                titulo:"Clean",
+                duracao:"3:10",
+                ano:2014
+            }]
+        }]
+        }
+    ];
 
     this.cadastrarArtista = (artista) => {
         var nome = artista.nome;
@@ -101,10 +126,6 @@ app.service("musicHub", function() {
             return true;
         };
 
-    };
-
-    this.selecionarArtista = (artista) => {
-        this.artistaSelecionado = artista;
     };
 
 });

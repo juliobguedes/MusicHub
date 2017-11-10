@@ -4,7 +4,7 @@
     <form style="margin-top: 50px;" name="artistaForm">
 
         <input type="text" placeholder="Nome do Artista" ng-model="artista.nome" ng-required="true" class="form-control artForm"/>
-        <input type="text" placeholder="Foto do Artista" ng-model="artista.img" class="form-control artForm"/>
+        <input type="text" placeholder="Foto do Artista" ng-model="artista.imagem" class="form-control artForm"/>
 
     </form>
 
@@ -53,7 +53,7 @@
                     </button>
                 </div>
             </td>
-            <td><a ui-sref="paginaDoArtista({nome: artista.nome})" ng-click="selecionarArtista(artista)">{{artista.nome}}</a></td>
+            <td><a ui-sref="paginaDoArtista({nome: artista.nome})">{{artista.nome}}</a></td>
         </tr>
 
 
