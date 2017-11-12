@@ -1,6 +1,8 @@
 app.controller("paginaDoArtistaController", function($scope, artista, musicHub) {
     $scope.artista = artista;
 
+    $scope.playlists = musicHub.playlists;
+
     $scope.albumSelecionado = undefined;
 
     $scope.selecionar = (album) => {
@@ -29,5 +31,9 @@ app.controller("paginaDoArtistaController", function($scope, artista, musicHub) 
 
     $scope.escutar = (musica) => {
         musicHub.escutarMusica($scope.artista, musica);
+    };
+
+    $scope.addNaPlaylist = (playlist, musica) => {
+        musicHub.cadastraMusicaNaPlaylist(playlist, musica);
     };
 });

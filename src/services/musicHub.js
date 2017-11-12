@@ -37,8 +37,7 @@ app.service("musicHub", function() {
 
     this.playlists = [{
         nome:".play(Violao)",
-        musicas:[]
-    }, {
+        musicas:[]}, {
         nome:"BRB, Sia L8er",
         musicas:[]
     }];
@@ -137,6 +136,7 @@ app.service("musicHub", function() {
             novoAlbum.musicas = [];
             novoAlbum.musicas.push(musica);
             artista.albuns.push(novoAlbum);
+            artista.ultimaMusica = musica;
 
             return true;
         };
@@ -146,5 +146,28 @@ app.service("musicHub", function() {
     this.escutarMusica = (artista, musica) => {
         let esseArtista = this.getArtista(artista.nome);
         esseArtista.ultimaMusica = musica;
+    };
+
+    this.cadastrarPlaylist = (playlist) => {
+        var jaTem = false;
+        for (i in this.playlists) {
+            if (this.playlists[i].nome == playlist.nome) {
+                jaTem = true;
+            }
+        }
+
+        if (jaTem) {
+            return false;
+        } else {
+            this.playlists.push(angular.copy(playlist));
+            return true;
+        }
+    };
+
+    this.cadastraMusicaNaPlaylist = (playlist, musica) => {
+        if (!(musica in playlist.musicas)) {
+            playlist.musicas.push(angular.copy(musica));
+        }
     }
+
 });
