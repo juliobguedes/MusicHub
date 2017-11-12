@@ -19,6 +19,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
                 return musicHub.getArtista($stateParams.nome)
             }
         }
+    }).state("playlists", {
+        url:"/playlists",
+        templateUrl:"templates/paginaDasPlaylists.html",
+        controller:"playlistsController"
     });
 
 });

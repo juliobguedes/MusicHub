@@ -5,14 +5,15 @@ app.service("musicHub", function() {
         albuns:[{
             nome:"Reputation",
             musicas:[{
-                titulo:"…Ready For It?",
+                titulo:"...Ready For It?",
                 duracao:"3:01",
                 ano:2017
             }, {
                 titulo:"End Game (feat. Ed Sheeran and Future)",
                 duracao:"3:01",
                 ano:2017
-            }]
+            }],
+            showTable: false
         },{
             nome:"1989",
             musicas:[{
@@ -23,10 +24,24 @@ app.service("musicHub", function() {
                 titulo:"Clean",
                 duracao:"3:10",
                 ano:2014
-            }]
-        }]
+            }],
+            showTable: false
+        }],
+        ultimaMusica:{
+            titulo:"...Ready For It?",
+            duracao:"3:01",
+            ano:2017
+        }
         }
     ];
+
+    this.playlists = [{
+        nome:".play(Violao)",
+        musicas:[]
+    }, {
+        nome:"BRB, Sia L8er",
+        musicas:[]
+    }];
 
     this.cadastrarArtista = (artista) => {
         var nome = artista.nome;
@@ -128,4 +143,8 @@ app.service("musicHub", function() {
 
     };
 
+    this.escutarMusica = (artista, musica) => {
+        let esseArtista = this.getArtista(artista.nome);
+        esseArtista.ultimaMusica = musica;
+    }
 });

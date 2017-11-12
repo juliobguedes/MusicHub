@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'Gunny';
-    src: url('../fonts/Gunny.ttf') format('truetype');
+    font-family: 'IndieFlower';
+    src: url('../fonts/IndieFlower.ttf') format('truetype');
 }
 
 @font-face {
@@ -18,7 +18,7 @@ body {
 
     border-radius: 9px;
 
-    margin-top: 50px;
+    margin-top: 10px;
     margin-left: 90px;
 
 }
@@ -78,7 +78,8 @@ th, td {
 }
 
 p {
-    font-family: Humanst;
+    font-family: IndieFlower;
+    font-size: 30px;
     text-align: center;
 }
 
@@ -112,8 +113,48 @@ a.link {
     width: 300px;
 }
 
-.albunsHead {
+.albuns {
     float: left;
     text-align: left;
     font-size: 30px;
 }
+
+.musicasDoAlbum {
+    float: left;
+    margin-left: 30px;
+    margin-top: 50px;
+    width: 400px !important;
+}
+
+.btn.ehFav {
+    background-color: gold;
+    margin-top: 10px;
+    margin-left: 115px;
+
+}
+
+.btn.naoEhFav {
+    margin-top: 10px;
+    margin-left: 115px;
+
+}
+
+.botoesConfirmacao {
+    margin-top: 5px;
+    margin-left: 150px;
+}
+
+.pForm {
+    margin-top: 140px;
+}
+
+body {
+    background: linear-gradient(180deg, rgb(248,236,194), rgb(223, 159, 232)) no-repeat center center fixed !important;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    font-family: IndieFlower !important;
+    font-size: 170% !important;
+}
+
