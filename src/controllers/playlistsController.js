@@ -36,4 +36,33 @@ app.controller("playlistsController", function($scope, musicHub, ngToast) {
         }
     };
 
+    $scope.tentouRemover = (musica) => {
+        musicHub.tentouRemover($scope.playlistSelecionada, musica);
+    };
+
+    $scope.remover = (musica) => {
+        musicHub.removerMusica($scope.playlistSelecionada, musica);
+        $scope.playlists = musicHub.playlists;
+    };
+
+    $scope.cancelar = (musica) => {
+        musicHub.cancelarMusica($scope.playlistSelecionada, musica);
+    };
+
+    $scope.tentouRemoverPlaylist = (playlist) => {
+        musicHub.tentouRemoverPlaylist(playlist);
+    };
+
+    $scope.removerPlaylist = (playlist) => {
+        musicHub.removerPlaylist(playlist);
+        $scope.playlists = musicHub.playlists;
+        if (playlist == $scope.playlistSelecionada) {
+            $scope.playlistSelecionada = undefined;
+        }
+    };
+
+    $scope.cancelarPlaylist = (playlist) => {
+        musicHub.cancelarPlaylist(playlist);
+    };
+
 });

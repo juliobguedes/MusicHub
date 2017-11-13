@@ -8,6 +8,18 @@
     src: url('../fonts/Humanst.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
+
 body {
     font-family: Humanst;
 }
@@ -17,9 +29,9 @@ body {
     float: left;
 
     border-radius: 9px;
-
+    padding-top: 20px;
     margin-top: 10px;
-    margin-left: 90px;
+    margin-left: 45px;
 
 }
 
@@ -130,13 +142,14 @@ a.link {
     background-color: gold;
     margin-top: 10px;
     margin-left: 115px;
+    height: 40px;
 
 }
 
 .btn.naoEhFav {
     margin-top: 10px;
     margin-left: 115px;
-
+    height: 40px;
 }
 
 .botoesConfirmacao {
@@ -158,3 +171,18 @@ body {
     font-size: 170% !important;
 }
 
+.estrelas {
+    margin-top: 10px !important;
+}
+
+.dropdown-menu {
+    position: relative !important;
+}
+
+li {
+    text-align: center;
+}
+
+confirm {
+    width: 15px;
+}

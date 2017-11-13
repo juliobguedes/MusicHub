@@ -6,23 +6,30 @@
         <p>{{"Última música escutada: " + artista.ultimaMusica.titulo}}</p>
         <div ng-if="artista.ehFavorito">
             <button class="btn ehFav" ng-click="tentouDesfavoritar(artista)">
-                <span class="glyphicon glyphicon-star"></span><p>Artista Favorito</p>
+                <p>Artista Favorito</p>
             </button>
             <div ng-if="artista.tentouDesfavoritar" class="botoesConfirmacao">
-                    <button class="btn btn-danger" ng-click="desfavoritar(artista)">
-                        <span class="glyphicon glyphicon-ok"></span>
-                    </button>
-                    <button class="btn btn-primary" ng-click="cancelar(artista)">
-                        <span class="glyphicon glyphicon-remove"></span>
-                    </button>
-                </div>
-            </td>
+                <button class="btn btn-danger" ng-click="desfavoritar(artista)">
+                    <span class="glyphicon glyphicon-ok"></span>
+                </button>
+                <button class="btn btn-primary" ng-click="cancelar(artista)">
+                    <span class="glyphicon glyphicon-remove"></span>
+                </button>
+            </div>
         </div>
         <div ng-if="!artista.ehFavorito">
             <button class="btn naoEhFav" ng-click="favoritar(artista)">
-                <span class="glyphicon glyphicon-star-empty"><p>Artista Favorito</p></span>
+                <p>Artista Favorito</p>
             </button>
         </div>
+        <star-rating-comp 
+                        rating="artista.nota"
+                        show-half-stars="true"
+                        class="estrelas" 
+                        color="positive"
+                        show-hover-stars="true"
+                        on-click="atualizaNota($event)">
+        </star-rating-comp>
     </div>
 
     <div class="albumTable">

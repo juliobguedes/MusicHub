@@ -1,4 +1,4 @@
-const app = angular.module("musicHub", ['ui.router', 'ngToast']);
+const app = angular.module("musicHub", ['ui.router', 'ngToast', 'star-rating']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
     $urlRouterProvider.otherwise("/");

@@ -2,6 +2,7 @@ app.service("musicHub", function() {
     this.artistas = [
         {nome:"Taylor Swift",
         imagem:"https://www.tribunaonline.com.br/wp-content/uploads/2016/05/taylor-swift.png",
+        nota:4,
         albuns:[{
             nome:"Reputation",
             musicas:[{
@@ -37,9 +38,13 @@ app.service("musicHub", function() {
 
     this.playlists = [{
         nome:".play(Violao)",
-        musicas:[]}, {
+        musicas:[],
+        tentouRemover: false,
+        remover: false}, {
         nome:"BRB, Sia L8er",
-        musicas:[]
+        musicas:[],
+        tentouRemover: false,
+        remover: false
     }];
 
     this.cadastrarArtista = (artista) => {
@@ -95,7 +100,7 @@ app.service("musicHub", function() {
         };
     };
 
-    this.cancelar = (artista) => {
+    this.cancelarDesfav = (artista) => {
         var jaExistente = this.getArtista(artista.nome);
         if (jaExistente != null) {
             jaExistente.tentouDesfavoritar = false;
@@ -159,15 +164,86 @@ app.service("musicHub", function() {
         if (jaTem) {
             return false;
         } else {
+            playlist.tentouRemover = false;
+            playlist.remover = true;
             this.playlists.push(angular.copy(playlist));
             return true;
         }
     };
 
     this.cadastraMusicaNaPlaylist = (playlist, musica) => {
-        if (!(musica in playlist.musicas)) {
-            playlist.musicas.push(angular.copy(musica));
+        let jaTem = false;
+        let local = this.getPlaylist(playlist);
+        for (i in local.musicas) {
+            if (local.musicas[i] == musica) {
+                jaTem = true;
+            }
+        }
+
+        if (!(jaTem)) {
+            let copyMusica = angular.copy(musica);
+            copyMusica.tentouRemover = false;
+            copyMusica.remover = false;
+            playlist.musicas.push(copyMusica);
         }
     }
+
+    this.getPlaylist = (playlist) => {
+        let local = this.playlists;
+        for (p in local) {
+            if (local[p].nome == playlist.nome) {
+                return local[p];
+            }
+        }
+    };
+
+    this.tentouRemover = (playlist, musica) => {
+        let local = this.getPlaylist(playlist);
+        for (i in local.musicas) {
+            if (local.musicas[i].nome == musica.nome) {
+                console.log('aew');
+                local.musicas[i].tentouRemover = true;
+            }
+        }
+    };
+
+    this.cancelarMusica = (playlist, musica) => {
+        let local = this.getPlaylist(playlist);
+        for (i in local.musicas) {
+            if (local.musicas[i].nome == musica.nome) {
+                local.musicas[i].tentouRemover = false;
+            }
+        }
+    };
+
+    this.removerMusica = (playlist, musica) => {
+        musica.remover = true;
+        let thisPlaylist = this.getPlaylist(playlist);
+        thisPlaylist.musicas = playlist.musicas.filter(function(musica) {
+            if (!(musica.remover)) {
+                return musica;
+            };
+        });
+    };
+
+    this.removerPlaylist = (playlist) => {
+        let local = this.getPlaylist(playlist);
+        local.remover = true;
+        this.playlists = this.playlists.filter(function(playlist) {
+            if (!(playlist.remover)) {
+                return playlist;
+            };
+        });
+    };
+
+    this.cancelarPlaylist = (playlist) => {
+        let local = this.getPlaylist(playlist);
+        local.tentouRemover = false;
+    };
+
+    this.tentouRemoverPlaylist = (playlist) => {
+        let local = this.getPlaylist(playlist);
+        local.tentouRemover = true;
+    };
 
 });

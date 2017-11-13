@@ -22,7 +22,7 @@ app.controller("paginaDoArtistaController", function($scope, artista, musicHub) 
     };
 
     $scope.cancelar = (artista) => {
-        musicHub.cancelar(artista);
+        musicHub.cancelarDesfav(artista);
     };
 
     $scope.tentouDesfavoritar = (artista) => {
@@ -36,4 +36,8 @@ app.controller("paginaDoArtistaController", function($scope, artista, musicHub) 
     $scope.addNaPlaylist = (playlist, musica) => {
         musicHub.cadastraMusicaNaPlaylist(playlist, musica);
     };
+
+    $scope.atualizaNota = ($event) => {
+        $scope.artista.nota = $event.rating;
+    }
 });

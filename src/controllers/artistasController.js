@@ -40,7 +40,7 @@ app.controller("artistasController", function($scope, ngToast, musicHub) {
     };
 
     $scope.cancelar = (artista) => {
-        musicHub.cancelar(artista);
+        musicHub.cancelarDesfav(artista);
     };
 
     $scope.tentouDesfavoritar = (artista) => {
