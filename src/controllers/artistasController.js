@@ -17,8 +17,10 @@ app.controller("artistasController", function($scope, ngToast, musicHub) {
     };
 
     $scope.cadastrarArtista = function(artista) {
-        if (artista.imagem === undefined) {
+        let imagemMudou = false;
+        if (artista.imagem === undefined || artista.imagem === "") {
             artista.imagem = "http://agency.governmentjobs.com/agencypageassets/frederickco/Assets/Images/ProfilePlaceholder250x250.png";
+            imagemMudou = true;
         }
         var deuCerto = musicHub.cadastrarArtista(artista);
         if (deuCerto) {
@@ -27,7 +29,9 @@ app.controller("artistasController", function($scope, ngToast, musicHub) {
 
         } else {
             artistaComMesmoNome();
-
+            if (imagemMudou) {
+                delete $scope.artista.imagem;
+            }
         };
     };
 

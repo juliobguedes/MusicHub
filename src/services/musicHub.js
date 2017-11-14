@@ -164,6 +164,7 @@ app.service("musicHub", function() {
         if (jaTem) {
             return false;
         } else {
+            playlist.musicas = [];
             playlist.tentouRemover = false;
             playlist.remover = true;
             this.playlists.push(angular.copy(playlist));
@@ -178,15 +179,15 @@ app.service("musicHub", function() {
             if (local.musicas[i] == musica) {
                 jaTem = true;
             }
-        }
+        };
 
         if (!(jaTem)) {
             let copyMusica = angular.copy(musica);
             copyMusica.tentouRemover = false;
             copyMusica.remover = false;
-            playlist.musicas.push(copyMusica);
+            local.musicas.push(copyMusica);
         }
-    }
+    };
 
     this.getPlaylist = (playlist) => {
         let local = this.playlists;
@@ -200,8 +201,7 @@ app.service("musicHub", function() {
     this.tentouRemover = (playlist, musica) => {
         let local = this.getPlaylist(playlist);
         for (i in local.musicas) {
-            if (local.musicas[i].nome == musica.nome) {
-                console.log('aew');
+            if (local.musicas[i].titulo === musica.titulo) {
                 local.musicas[i].tentouRemover = true;
             }
         }

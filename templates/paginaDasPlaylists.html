@@ -19,17 +19,19 @@
         <table class="table table-striped">
             <tr ng-repeat="playlist in playlists">
                 <td>
-                    <button class="btn btn-default btn-danger" ng-click="tentouRemoverPlaylist(playlist)">
+                    <button class="btn btn-default btn-default" ng-click="tentouRemoverPlaylist(playlist)">
                         <span class="glyphicon glyphicon-remove"></span>
                     </button>
                 </td>
-                <td ng-if="playlist.tentouRemover">
+                <td>
+                    <div ng-if="playlist.tentouRemover">
                         <button class="btn btn-danger" ng-click="removerPlaylist(playlist)">
                             <span class="glyphicon glyphicon-ok"></span>
                         </button>
                         <button class="btn btn-primary" ng-click="cancelarPlaylist(playlist)">
                             <span class="glyphicon glyphicon-remove"></span>
                         </button>
+                    </div>
                 </td>
                 <td><a ng-click="selecionar(playlist)">{{playlist.nome}}</a></td>
             </tr>
