@@ -1,0 +1,63 @@
+<div class="jumbotron addArtistas">
+    <p>Adicione artistas ao sistema</p>
+
+    <form style="margin-top: 50px;" name="artistaForm">
+
+        <input type="text" placeholder="Nome do Artista" ng-model="artista.nome" ng-required="true" class="form-control artForm"/>
+        <input type="text" placeholder="Foto do Artista" ng-model="artista.imagem" class="form-control artForm"/>
+
+    </form>
+
+    <div class="buttons">
+        <button class="btn btn-primary btn-block" ng-click="cadastrarArtista(artista)">Adicionar artista</button>
+
+    </div>
+
+    
+</div>
+
+
+<div class="displayArtistas">
+
+    <div>
+        <input placeholder="Pesquisar artista" ng-model="pesquisa" type="text" class="form-control"/>
+    </div>
+
+    <table class="table table-striped">
+
+        <tr>
+            <th><span class="glyphicon glyphicon-star"></span></th>
+            <th></th>
+            <th><a href="" ng-click="ordenarPor('nome')">Nome do Artista</a></th>
+        </tr>
+        <tr ng-repeat="artista in artistas |filter:{nome:pesquisa} | orderBy:ordem:nr">
+            <td>
+                <div ng-if="artista.ehFavorito">
+                    <button class="btn" style="background-color:inherit" ng-click="tentouDesfavoritar(artista)">
+                        <span class="glyphicon glyphicon-star"></span>
+                    </button>
+                </div>
+                <div ng-if="!(artista.ehFavorito)">
+                    <button class="btn" style="background-color:inherit" ng-click="favoritar(artista)">
+                        <span class="glyphicon glyphicon-star-empty"></span>
+                    </button>
+                </div>
+            </td>
+            <td>
+                <div ng-if="artista.tentouDesfavoritar" style="float: left;">
+                    <button class="btn btn-danger" ng-click="desfavoritar(artista)">
+                        <span class="glyphicon glyphicon-ok"></span>
+                    </button>
+                    <button class="btn btn-primary" ng-click="cancelar(artista)">
+                        <span class="glyphicon glyphicon-remove"></span>
+                    </button>
+                </div>
+            </td>
+            <td><a ui-sref="paginaDoArtista({nome: artista.nome})">{{artista.nome}}</a></td>
+        </tr>
+
+
+
+    </table>
+
+</div>
