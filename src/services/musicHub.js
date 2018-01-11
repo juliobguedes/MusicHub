@@ -1,7 +1,7 @@
 app.service("musicHub", function() {
     this.artistas = [
         {nome:"Taylor Swift",
-        imagem:"https://www.tribunaonline.com.br/wp-content/uploads/2016/05/taylor-swift.png",
+        imagem:"http://www.usjournal.net/wp-content/uploads/2017/08/taylor1.jpg",
         nota:4,
         albuns:[{
             nome:"Reputation",
